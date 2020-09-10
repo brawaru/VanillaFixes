@@ -1,0 +1,6 @@
+name: VanillaFixes
+version: @version@
+main: com.github.brawaru.vanillafixes.VanillaFixes
+api-version: 1.16
+authors: [ Brawaru ]
+description: Just some little vanilla Minecraft fixes
