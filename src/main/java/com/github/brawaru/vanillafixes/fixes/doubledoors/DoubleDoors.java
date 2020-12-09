@@ -1,6 +1,7 @@
 package com.github.brawaru.vanillafixes.fixes.doubledoors;
 
 import com.github.brawaru.vanillafixes.VanillaFixes;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
@@ -39,7 +40,8 @@ public class DoubleDoors implements Listener  {
 
         Block clickedBlock = event.getClickedBlock();
 
-        if (!isDoor(clickedBlock)) return;
+        // Iron doors never can be opened by hand, so we should skip them for this event
+        if (!isDoor(clickedBlock) || clickedBlock.getType().equals(Material.IRON_DOOR)) return;
 
         new DoubleDoorsFixTask(clickedBlock).runTaskLater(plugin, 0);
     }
